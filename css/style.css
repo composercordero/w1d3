@@ -23,7 +23,10 @@
     display: grid;
     grid-template-areas: "logo menu";
     grid-template-columns: 1fr 4fr;
+    position: -webkit-sticky;
     position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .navbar h1{
@@ -69,7 +72,21 @@
 
 .title{
     position: relative;
+    animation: slidein 0.6s;
 }
+
+@keyframes slidein {
+    from {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
 
 /* POSTS */
 
@@ -85,11 +102,12 @@
 
 .month{
     margin-top: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border: 1px solid gray;
     background-color: lightgrey;
     font-size: 1.5rem;
     padding: 10px;
+
 }
 
 .card{
@@ -108,11 +126,57 @@
     justify-content: space-between;
 }
 
-.read{
+.read-button{
     background-color: orange;
     border: none;
     display: flex;
     justify-content: center;
     padding: 20px;
+    width: 10vw;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 25px;
+
 }
-  
+
+.read-button:hover{
+    background-color: lightpink;
+    transition: ease-in 0.3s;
+}
+
+/* FOOTER */
+
+.footer-container{
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-areas: ". footer .";
+    grid-template-columns: 1fr 5fr 1fr;
+    padding: 60px 0;
+}
+
+.footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.map img {
+	width: 30vw;
+}
+
+.footer-col{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-col h3{
+    font-size: 1.5rem;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
